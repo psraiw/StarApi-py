@@ -5,7 +5,7 @@ import time
 import concurrent.futures
 
 api = None
-class order:
+class Order:
      def __init__(self, buy_or_sell:str = None, product_type:str = None,
                  exchange: str = None, tradingsymbol:str =None, 
                  price_type: str = None, quantity: int = None, 
@@ -43,7 +43,7 @@ class StarApiPy(NorenApi):
         global api
         api = self
 
-    def placeOrder(self, order: order):
+    def placeOrder(self, order: Order):
         return api.place_order(buy_or_sell=order.buy_or_sell, product_type=order.product_type,
                         exchange=order.exchange, tradingsymbol=order.tradingsymbol, 
                         quantity=order.quantity, discloseqty=order.discloseqty, price_type=order.price_type, 
